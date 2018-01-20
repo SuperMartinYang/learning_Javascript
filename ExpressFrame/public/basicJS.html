@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<title>test</title>
+</head>
+<script type="text/javascript">
+	document.write("名称："+navigator.appName+"<br />");
+	document.write("版本号："+navigator.appVersion+"<br />");
+	document.write("发行代号："+navigator.appCodeName+"<br />");
+	//数据类型
+	var name = '你\n好！';
+	var sixteen = 0xa1;
+	var ten = 0123;
+	var float = 2e-4;
+	alert('hello'+name+"\nsixteen:"+sixteen+"\nten:"+ten+"\nfloat:"+float);
+	var obj = new Object();
+	var date = new Date();
+	var year = date.getYear();
+	var isaNa = isNaN(year);
+	var parse = parseInt(year);
+	document.write(obj.toString());
+	var cal = Math.pow(Math.PI,2);
+	var str = "1"+'1'+1;
+	var arr = new Array(0,Math.PI,'a',"asb",date);
+	//使用for-in循环语句输出数组对象内容
+	for (i in arr) {
+		document.write("array:"+i+"->"+arr[i]+"<br />");
+	}
+	document.write(arr[2]+"<br />");
+	var nul = null;
+	var undefi;
+	if(nul){
+		alert("not null");
+	}else{
+		alert("null");
+	}
+	if(nul ==undefi){
+		document.write('null == undefi'+"<br />");
+	}else{
+		document.write('null != undefi'+"<br />");
+	}
+	//函数
+	function Car(owner,rate){
+		this.owner = owner;
+		this.rate = rate;
+	}
+	var car = new Car('yang','100km/h')
+	document.write(car.owner+"'s car has the speed of "+car.rate+"<br />");
+	//类型转换
+	var age = prompt('请输入您的年龄：','0'); //获取用户输入的方式
+	if(age>=0){								  //==双等号在运行的时候会进行类型转换
+		document.write(age+"<br />");
+	}
+
+	var trans = parseInt('123元');
+
+	//一个使用js控制html的流程
+	var fruit = new Array('pineapple','100元','apple','50元','orange','16元');
+	for (index in fruit) {
+		if (index%2 == 0) {
+			document.write(fruit[index]+":");
+		}else{
+			document.write(fruit[index]);
+			document.write('<input type="button" onclick="alert(this.value)" value="'+fruit[index]+'" /><br />');
+		}
+	}
+	//使用instanceof 用来判断变量是否为某某的实例,返回布尔值
+	var type = trans instanceof String;
+	document.write("trans instanceof int:"+type+"<br />");
+	//使用typeof 返回变量的类型
+	document.write('typeof(trans):'+typeof(trans)+"<br />");
+
+	//调用方法的方式
+	var nameYSH = '杨省辉';
+	//调用string的length属性
+	var len = nameYSH.length;
+	//调用string的charAt函数
+	var xing = nameYSH.charAt(0);
+	//调用string的静态函数
+	var unicodeOfYang = String.fromCharCode(26472);
+	var yangOfUnicode = String.charCodeAt('杨');
+
+	var student = new Object();
+	student.name = 'Tom';
+	student.sex = 'man';
+	//使用delete删除指定属性
+	delete student.sex;
+
+	//函数调用运算符call，一个对象调用另外一个对象
+	function showStudentInfo(){
+		document.write(this.name+"的年龄:"+this.age+"<br />");
+	}
+	function Student(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	var stu = new Student('Martin',100);
+	showStudentInfo.call(stu);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<body>
+<a href="http://www.baidu.com">百度</a>
+<a href="http://www.qq.com">腾讯</a>
+<a href="http://www.google.com">谷歌</a>
+<a href="http://www.yahoo.com">雅虎</a>
+<a href="http://www.sina.com">新浪</a>
+<a href="http://www.4399.com">4399</a>
+
+
+<script type="text/javascript">
+	//使用DOM对象的Links数组获取html中的链接（其中第一个Links[0]为链接数量）
+	var addr = "";
+	for (n in document.links){
+		if(document.links.length == document.links[n]){
+			continue;
+		}else{
+			var lineName = document.getElementsByTagName('a')[n].innerHTML;
+			addr +=lineName+":"+document.links[n]+"\n";
+			
+		}
+	};
+	alert(addr);
+</script>
+
+</body>
+</html>

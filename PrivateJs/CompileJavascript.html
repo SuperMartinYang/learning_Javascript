@@ -1,0 +1,27 @@
+<html>
+<head>
+
+<title>Compile JavaScript</title>
+<script>
+function Button_onClick(){
+	try{
+		var cmd = document.getElementById("textArea");
+		var str = "try{"+cmd.value+"}catch(e){alert('请输入有效代码'+e.description)}";
+		var excute =new Function(str);
+		excute(); 	
+	}catch(e){
+		alert("错误:"+e.description);
+	}
+}
+</script>
+</head>
+<body>
+<form>
+<div align="center">
+<textarea id="textArea" style="height:500px;width:500px">
+</textarea><br />
+<input type="button" value="执行程序" onclick="return Button_onClick()"/>
+</form>
+</div>
+</body>
+</html>
